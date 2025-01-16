@@ -1,43 +1,54 @@
-import React from "react";
+import logo from "../../assets/logo.png";
 
-const Card = () => {
+const Card = ({ response }) => {
   return (
-    <>
-      <a className="flex flex-col gap-4 rounded-md border border-solid border-gray-300 px-4 py-8 md:p-0">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPlaceholder%20Image.svg?alt=media&token=375a1ea3-a8b6-4d63-b975-aac8d0174074"
-          alt=""
-          className="h-60 object-cover"
-        />
-        <div className="px-6 py-4">
-          <p className="mb-4 text-sm font-semibold uppercase text-gray-500">
-            lifestyle
-          </p>
-          <p className="mb-4 text-xl font-semibold">
-            The latest news with Flowspark
-          </p>
-          <p className="mb-6 text-sm text-gray-500 sm:text-base lg:mb-8">
-            Lorem ipsum dolor sit amet, &nbsp;elit ut aliquam, purus sit amet
-            luctus venenatis elit ut aliquam, purus sit amet luctus venenatis
-          </p>
-          <div className="flex">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPLaceholder%20Image%20Secondary.svg?alt=media&token=b8276192-19ff-4dd9-8750-80bc5f7d6844"
-              alt=""
-              className="mr-4 h-10 w-10 rounded-full object-cover"
-            />
-            <div className="flex flex-col">
-              <h6 className="text-base font-bold">Laila Bahar</h6>
-              <div className="flex flex-col lg:flex-row">
-                <p className="text-sm text-gray-500">Sept 28, 2022</p>
-                <p className="mx-2 hidden text-sm text-gray-500 lg:flex">-</p>
-                <p className="text-sm text-gray-500">6 mins read</p>
-              </div>
-            </div>
+    <div className="bg-white shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPlaceholder%20Image.svg?alt=media&token=375a1ea3-a8b6-4d63-b975-aac8d0174074"
+        alt="Image"
+        className="w-full h-56 object-cover rounded-t-2xl"
+      />
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-xs font-semibold text-gray-600 uppercase">
+            <span className="ml-2 inline-block rounded-full bg-blue-500 px-3 py-1 text-white text-xs font-medium">
+              {response?.mood}
+            </span>
+          </span>
+          <div className="text-sm text-gray-500">
+            {response?.date?.split("T")[0]}
           </div>
         </div>
-      </a>
-    </>
+
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+          {response?.title}
+        </h3>
+        <p className="text-sm text-gray-600 mb-6">{response?.description}</p>
+
+        <div className="flex items-center space-x-4 mb-4">
+          <img
+            src={logo}
+            alt="Logo"
+            className="h-12 w-12 rounded-full object-cover"
+          />
+          <div>
+            <h4 className="text-base font-bold text-gray-800">
+              {response?.location}
+            </h4>
+            <p className="text-sm text-gray-500">{response?.category}</p>
+          </div>
+        </div>
+
+        <div className="flex justify-between mt-4 space-x-4">
+          <button className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 bg-blue-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
+            ✏️ Update
+          </button>
+          <button className="flex items-center text-sm font-medium text-red-600 hover:text-red-800 bg-red-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
+            🗑️ Delete
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
