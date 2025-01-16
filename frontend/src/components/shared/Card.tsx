@@ -1,10 +1,21 @@
+import axios from "axios";
 import logo from "../../assets/logo.png";
 
 const Card = ({ response }) => {
+
+  const deleteMemento = async(id)=>{
+    try{
+      await axios.get(`http://localhost:4001/api/delete/${id}`);
+      console.log("deleted");
+    }catch(err){
+console.log(err)
+    }
+  }
+
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out font-sans">
       <img
-        src="https://firebasestorage.googleapis.com/v0/b/flowspark-1f3e0.appspot.com/o/Tailspark%20Images%2FPlaceholder%20Image.svg?alt=media&token=375a1ea3-a8b6-4d63-b975-aac8d0174074"
+        src="https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small_2x/colorful-ink-splash-on-transparent-background-png.png"
         alt="Image"
         className="w-full h-56 object-cover rounded-t-2xl"
       />
@@ -43,7 +54,7 @@ const Card = ({ response }) => {
           <button className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
             ✏️ Update
           </button>
-          <button className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
+          <button className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105" onClick={()=>deleteMemento(response?._id)}>
             🗑️ Delete
           </button>
         </div>

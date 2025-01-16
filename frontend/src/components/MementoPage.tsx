@@ -4,6 +4,7 @@ import Card from "./shared/Card";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
+import { Link } from "react-router";
 
 type Inputs = {
   title: string;
@@ -89,12 +90,12 @@ const MementoPage = () => {
               >
                 Create
               </a>
-              <a
-                href="/"
+              <Link to='/'
+                
                 className="rounded-md bg-gray-600 px-6 py-3 text-center font-semibold text-white hover:bg-gray-700 transition duration-300 ease-in-out"
               >
                 Go Back
-              </a>
+              </Link>
             </div>
           </div>
         </div>

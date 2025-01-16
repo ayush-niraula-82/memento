@@ -24,7 +24,23 @@ const addMementos = async (req, res) => {
   }
 };
 
+const deleteMementoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await Memento.findByIdAndDelete(id);
+    res.status(200).json({
+      message: "Successfully deleted memento",
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "Failed to delete memento",
+    });
+  }
+};
+
 module.exports = {
   getAllMementos,
   addMementos,
+  deleteMementoById,
 };
