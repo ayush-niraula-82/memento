@@ -53,7 +53,7 @@ const HeroPage = () => {
           <div className="w-full lg:w-2/5 flex justify-center">
             <div className="rounded-lg shadow-lg overflow-hidden w-full max-w-[500px] h-[400px] bg-gray-300">
               <img
-                src="https://via.placeholder.com/500x400"
+                src="https://static.vecteezy.com/system/resources/thumbnails/027/254/720/small_2x/colorful-ink-splash-on-transparent-background-png.png"
                 alt="Hero Image"
                 className="w-full h-full object-cover"
               />

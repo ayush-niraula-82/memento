@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   getAllMementos,
   addMementos,
-  deleteMementoById
+  deleteMementoById,
 } = require("../controller/mementoController");
 
 router.get("/api/all", getAllMementos);

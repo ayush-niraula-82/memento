@@ -2,15 +2,14 @@ import axios from "axios";
 import logo from "../../assets/logo.png";
 
 const Card = ({ response }) => {
-
-  const deleteMemento = async(id)=>{
-    try{
+  const deleteMemento = async (id) => {
+    try {
       await axios.get(`http://localhost:4001/api/delete/${id}`);
       console.log("deleted");
-    }catch(err){
-console.log(err)
+    } catch (err) {
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out font-sans">
@@ -54,7 +53,10 @@ console.log(err)
           <button className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
             ✏️ Update
           </button>
-          <button className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105" onClick={()=>deleteMemento(response?._id)}>
+          <button
+            className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-800 bg-gray-100 px-4 py-2 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
+            onClick={() => deleteMemento(response?._id)}
+          >
             🗑️ Delete
           </button>
         </div>

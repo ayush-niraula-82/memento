@@ -90,8 +90,8 @@ const MementoPage = () => {
               >
                 Create
               </a>
-              <Link to='/'
-                
+              <Link
+                to="/"
                 className="rounded-md bg-gray-600 px-6 py-3 text-center font-semibold text-white hover:bg-gray-700 transition duration-300 ease-in-out"
               >
                 Go Back
